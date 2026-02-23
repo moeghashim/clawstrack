@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClawsTrack OSS Monitor</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; background: #0f172a; color: #e2e8f0; }
+      h1 { margin-bottom: 0.5rem; }
+      .panel { background: #111827; border: 1px solid #334155; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+      input, select, button { padding: 0.5rem; margin: 0.2rem; border-radius: 6px; border: 1px solid #475569; background: #1e293b; color: #e2e8f0; }
+      button { cursor: pointer; }
+      table { width: 100%; border-collapse: collapse; }
+      td, th { border-bottom: 1px solid #334155; padding: 0.6rem; text-align: left; vertical-align: top; }
+      .muted { color: #94a3b8; font-size: 0.9rem; }
+      code { color: #cbd5e1; }
+      .row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    </style>
+  </head>
+  <body>
+    <h1>ClawsTrack</h1>
+    <p class="muted">Monitor and compare open-source projects configured by admins through <code>MONITORED_REPOS</code>.</p>
+
+    <div class="panel">
+      <h3>Monitored repositories</h3>
+      <button onclick="runIngest()">Run ingest now</button>
+      <ul id="repos"></ul>
+    </div>
+
+    <div class="panel">
+      <h3>Compare projects</h3>
+      <label>Level</label>
+      <select id="level">
+        <option value="summary">summary</option>
+        <option value="technical">technical</option>
+        <option value="security">security</option>
+      </select>
+      <button onclick="runCompare()">Run comparison</button>
+      <table id="scores"></table>
+    </div>
+
+    <div class="panel">
+      <h3>Signup and subscribe</h3>
+      <div class="row">
+        <input id="email" placeholder="email@example.com" />
+        <select id="repoSelect"></select>
+        <input id="criteria" placeholder="features,security,use_case" value="all" />
+        <button onclick="signupAndSubscribe()">Signup + Subscribe</button>
+      </div>
+      <p id="subscriptionStatus" class="muted"></p>
+      <button onclick="notifyFirstRepo()">Notify subscribers of first repo</button>
+    </div>
+
+    <div class="panel">
+      <h3>Recent snapshots</h3>
+      <table id="snapshots"></table>
+    </div>
+
+    <div class="panel">
+      <h3>Recent comparisons</h3>
+      <table id="comparisonHistory"></table>
+    </div>
+
+    <script>
+      async function fetchJson(url, options = undefined) {
+        const res = await fetch(url, options);
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.detail || `Request failed: ${res.status}`);
+        }
+        return data;
+      }
+
+
+      async function runIngest() {
+        try {
+          const result = await fetchJson('/api/ingest', { method: 'POST' });
+          document.getElementById('subscriptionStatus').textContent = `Ingest complete: ${result.ingested_events} events.`;
+          await loadSnapshots();
+        } catch (error) {
+          document.getElementById('subscriptionStatus').textContent = error.message;
+        }
+      }
+
+      async function notifyFirstRepo() {
+        try {
+          const repos = await fetchJson('/api/repositories');
+          if (!repos.length) {
+            throw new Error('No repositories configured by admin.');
+          }
+          const result = await fetchJson(`/api/notify/${repos[0].id}?message=Repository+updated`, { method: 'POST' });
+          document.getElementById('subscriptionStatus').textContent = `Notification sent to ${result.sent} subscribers.`;
+        } catch (error) {
+          document.getElementById('subscriptionStatus').textContent = error.message;
+        }
+      }
+
+      async function loadRepos() {
+        const repos = await fetchJson('/api/repositories');
+        const list = document.getElementById('repos');
+        const select = document.getElementById('repoSelect');
+        list.innerHTML = '';
+        select.innerHTML = '';
+        repos.forEach((repo) => {
+          const li = document.createElement('li');
+          li.textContent = repo.url;
+          list.appendChild(li);
+
+          const option = document.createElement('option');
+          option.value = repo.url;
+          option.textContent = repo.url;
+          select.appendChild(option);
+        });
+      }
+
+      async function runCompare() {
+        const repos = await fetchJson('/api/repositories');
+        const level = document.getElementById('level').value;
+
+        const data = await fetchJson('/api/compare', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            repositories: repos.map(r => r.url),
+            level,
+            criteria: ['features', 'security', 'use_case']
+          })
+        });
+
+        const table = document.getElementById('scores');
+        table.innerHTML = '<tr><th>Repository</th><th>Score</th><th>Rationale</th></tr>';
+        (data.scores || []).forEach((scoreItem) => {
+          table.innerHTML += `<tr><td>${scoreItem.repository}</td><td>${scoreItem.score}</td><td>${scoreItem.rationale}</td></tr>`;
+        });
+
+        await loadComparisonHistory();
+      }
+
+      async function signupAndSubscribe() {
+        const email = document.getElementById('email').value;
+        const repositoryUrl = document.getElementById('repoSelect').value;
+        const criteria = document.getElementById('criteria').value || 'all';
+
+        await fetchJson('/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const subscription = await fetchJson('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, repository_url: repositoryUrl, criteria })
+        });
+
+        document.getElementById('subscriptionStatus').textContent =
+          `Subscribed ${subscription.email} to ${subscription.repository} with criteria=${subscription.criteria}`;
+      }
+
+      async function loadSnapshots() {
+        const snapshots = await fetchJson('/api/snapshots?limit=10');
+        const table = document.getElementById('snapshots');
+        table.innerHTML = '<tr><th>Repository</th><th>Type</th><th>Created</th></tr>';
+        snapshots.forEach((item) => {
+          table.innerHTML += `<tr><td>${item.repository_url}</td><td>${item.event_type}</td><td>${item.created_at}</td></tr>`;
+        });
+      }
+
+      async function loadComparisonHistory() {
+        const comparisons = await fetchJson('/api/comparisons?limit=10');
+        const table = document.getElementById('comparisonHistory');
+        table.innerHTML = '<tr><th>Created</th><th>Rationale</th></tr>';
+        comparisons.forEach((item) => {
+          table.innerHTML += `<tr><td>${item.created_at}</td><td>${item.rationale}</td></tr>`;
+        });
+      }
+
+      async function bootstrap() {
+        await loadRepos();
+        await loadSnapshots();
+        await loadComparisonHistory();
+      }
+
+      bootstrap();
+    </script>
+  </body>
+</html>

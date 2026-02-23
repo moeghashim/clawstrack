@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+jinja2
+pydantic
+python-dotenv
+httpx
+openai
+scrapling
+pytest

@@ -1,0 +1,10 @@
+- Learned that building a thin vertical slice early (config -> persistence -> API -> UI) helps validate architecture quickly.
+- Added deterministic fallback scoring so comparison remains available when OpenAI key/network fails.
+- Kept repository source of truth in MONITORED_REPOS to satisfy admin-driven monitoring.
+- Preserved explainability by persisting rationale alongside scorecards.
+- Learned that a richer vertical slice must include subscription and notification flow, not only comparison scoring.
+- Added release-oriented ingestion events so comparisons can be tied to concrete release snapshots over time.
+- Exposed historical APIs (`/api/snapshots`, `/api/comparisons`) to make web UX and downstream agent workflows auditable.
+- Learned to expose operator endpoints (manual ingest + notify) to make the system more practical for admin-led workflows.
+- Reduced coupling by moving subscriber email lookup into repository queries, keeping API handlers thinner.
+- Added client-side API error handling so dashboard failures are visible to users instead of failing silently.
