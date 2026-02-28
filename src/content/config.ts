@@ -10,6 +10,8 @@ const projectsCollection = defineCollection({
     language: z.string(),
     version: z.string(),
     xAccount: z.string().optional(),
+    codeSize: z.string().optional(),
+    memorySystemType: z.string().optional(),
     features: z.object({
       multiChannel: z.boolean(),
       sandboxIsolation: z.boolean(),

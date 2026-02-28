@@ -55,6 +55,15 @@ const colCount = projects.length + 1;
 				</tr>
 
 				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black">Code Size (lines)</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono text-xs border-r border-black">
+							{p.data.codeSize ? p.data.codeSize : <span class="text-gray-400">—</span>}
+						</td>
+					))}
+				</tr>
+
+				<tr class="border-b border-black">
 					<td class="p-4 font-bold border-r border-black">X (Twitter)</td>
 					{projects.map(p => (
 						<td class="p-4 font-mono border-r border-black">
@@ -88,6 +97,14 @@ const colCount = projects.length + 1;
 					))}
 				</tr>
 				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Memory System</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono text-xs border-r border-black">
+							{p.data.memorySystemType ? p.data.memorySystemType : <span class="text-gray-400">—</span>}
+						</td>
+					))}
+				</tr>
+				<tr class="border-b border-black">
 					<td class="p-4 font-bold border-r border-black text-gray-700">Scheduled Tasks</td>
 					{projects.map(p => (
 						<FeatureCell enabled={p.data.features.scheduledTasks} />

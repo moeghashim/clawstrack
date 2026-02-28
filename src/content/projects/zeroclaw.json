@@ -6,6 +6,8 @@
     "language": "Rust",
     "version": "v0.1.7",
     "xAccount": "zeroclawlabs",
+    "codeSize": "~198k",
+    "memorySystemType": "Pluggable (trait-based)",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": true,

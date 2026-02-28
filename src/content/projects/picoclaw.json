@@ -6,6 +6,8 @@
     "language": "Go",
     "version": "v0.1.2",
     "xAccount": "SipeedIO",
+    "codeSize": "~36k",
+    "memorySystemType": "MEMORY.md, long-term memory",
     "features": {
         "multiChannel": false,
         "sandboxIsolation": false,

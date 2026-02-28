@@ -6,6 +6,8 @@
     "language": "TypeScript",
     "version": "v2026.2.26",
     "xAccount": "openclaw",
+    "codeSize": "~430k",
+    "memorySystemType": "Workspace filesystem, skills",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": false,

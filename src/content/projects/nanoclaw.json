@@ -6,6 +6,8 @@
     "language": "TypeScript",
     "version": "—",
     "xAccount": "qwibitai",
+    "codeSize": "~22k",
+    "memorySystemType": "CLAUDE.md per group, isolated filesystem",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": true,

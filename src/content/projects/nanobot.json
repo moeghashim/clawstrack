@@ -6,6 +6,8 @@
     "language": "Python",
     "version": "v0.1.4.post2",
     "xAccount": "",
+    "codeSize": "~4k",
+    "memorySystemType": "Persistent memory (memory.py)",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": false,

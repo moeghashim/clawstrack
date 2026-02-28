@@ -80,3 +80,12 @@ Referenced by: CLAUDE.md, .cursor/rules/agent.md
 - nanobot and IronClaw have no public X account — display "—" when empty
 - NanoClaw has no releases — version shown as "—"
 - Added Version and X (Twitter) rows to comparison table; X links to x.com profile
+
+--- 2026-02-27 ---
+
+## Session: Add Memory System per Project
+
+### What was done
+- Added `memorySystemType` (optional string) to content schema
+- Added "Memory System" row to comparison table showing implementation details per project
+- Populated from READMEs: OpenClaw (workspace filesystem), NanoClaw (CLAUDE.md per group), nanobot (memory.py), PicoClaw (MEMORY.md), IronClaw (PostgreSQL + pgvector), ZeroClaw (pluggable trait-based), Pi (—)
