@@ -7,6 +7,7 @@ Open-source AI assistant project comparison matrix. Side-by-side feature, licens
 | Project | Repo | Language |
 |---------|------|----------|
 | OpenClaw | [openclaw/openclaw](https://github.com/openclaw/openclaw) | TypeScript |
+| NullClaw | [nullclaw/nullclaw](https://github.com/nullclaw/nullclaw) | — |
 | nanobot | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | Python |
 | PicoClaw | [sipeed/picoclaw](https://github.com/sipeed/picoclaw) | Go |
 | ZeroClaw | [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw) | Rust |
