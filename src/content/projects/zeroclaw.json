@@ -4,6 +4,8 @@
     "description": "Fast, small, fully autonomous AI assistant infrastructure — deploy anywhere, swap anything.",
     "license": "Apache-2.0",
     "language": "Rust",
+    "version": "v0.1.7",
+    "xAccount": "zeroclawlabs",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": true,

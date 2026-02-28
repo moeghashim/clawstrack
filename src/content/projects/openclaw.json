@@ -4,6 +4,8 @@
     "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way.",
     "license": "MIT",
     "language": "TypeScript",
+    "version": "v2026.2.26",
+    "xAccount": "openclaw",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": false,

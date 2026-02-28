@@ -4,6 +4,8 @@
     "description": "AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries.",
     "license": "MIT",
     "language": "TypeScript",
+    "version": "v0.55.3",
+    "xAccount": "badlogicgames",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": false,

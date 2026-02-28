@@ -8,6 +8,8 @@ const projectsCollection = defineCollection({
     description: z.string(),
     license: z.string(),
     language: z.string(),
+    version: z.string(),
+    xAccount: z.string().optional(),
     features: z.object({
       multiChannel: z.boolean(),
       sandboxIsolation: z.boolean(),

@@ -4,6 +4,8 @@
     "description": "Ultra-efficient Go AI assistant — runs on $10 hardware with <10MB RAM.",
     "license": "MIT",
     "language": "Go",
+    "version": "v0.1.2",
+    "xAccount": "SipeedIO",
     "features": {
         "multiChannel": false,
         "sandboxIsolation": false,

@@ -68,3 +68,15 @@ Referenced by: CLAUDE.md, .cursor/rules/agent.md
 - GitHub API returns "NOASSERTION" for license when the LICENSE file doesn't match a known SPDX pattern (picoclaw)
 - These "claw" projects form a clear ecosystem: OpenClaw is the reference, others are lightweight alternatives in various languages (TS, Python, Go, Rust)
 - The content collection auto-expansion pattern works perfectly — adding 7 JSON files required zero template logic changes beyond the feature rows
+
+--- 2026-02-27 ---
+
+## Session: Add X Account and Version per Project
+
+### What was done
+- Added `version` and `xAccount` (optional) to content schema
+- Populated each project with latest release version from GitHub API
+- Populated X handles from READMEs and GitHub org/user metadata: openclaw, qwibitai, SipeedIO, badlogicgames, zeroclawlabs
+- nanobot and IronClaw have no public X account — display "—" when empty
+- NanoClaw has no releases — version shown as "—"
+- Added Version and X (Twitter) rows to comparison table; X links to x.com profile

@@ -4,6 +4,8 @@
     "description": "Lightweight OpenClaw alternative that runs agents securely in containers.",
     "license": "MIT",
     "language": "TypeScript",
+    "version": "—",
+    "xAccount": "qwibitai",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": true,

@@ -47,6 +47,26 @@ const colCount = projects.length + 1;
 					))}
 				</tr>
 
+				<tr class="border-b border-black">
+					<td class="p-4 font-bold border-r border-black">Version</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono border-r border-black">{p.data.version}</td>
+					))}
+				</tr>
+
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black">X (Twitter)</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono border-r border-black">
+							{p.data.xAccount ? (
+								<a href={`https://x.com/${p.data.xAccount}`} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">@{p.data.xAccount}</a>
+							) : (
+								<span class="text-gray-400">—</span>
+							)}
+						</td>
+					))}
+				</tr>
+
 				<SectionHeader label="Features" colspan={colCount} />
 
 				<tr class="border-b border-black">

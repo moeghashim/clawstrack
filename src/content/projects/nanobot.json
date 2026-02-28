@@ -4,6 +4,8 @@
     "description": "Ultra-lightweight personal AI assistant — 99% smaller than OpenClaw.",
     "license": "MIT",
     "language": "Python",
+    "version": "v0.1.4.post2",
+    "xAccount": "",
     "features": {
         "multiChannel": true,
         "sandboxIsolation": false,
