@@ -1,0 +1,8 @@
+---
+interface Props {
+	enabled: boolean;
+}
+const { enabled } = Astro.props;
+---
+
+<td class="p-4 border-r border-black text-lg text-accent">{enabled ? '●' : '○'}</td>

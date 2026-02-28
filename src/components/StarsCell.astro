@@ -1,0 +1,15 @@
+---
+interface Props {
+	repo: string;
+}
+const { repo } = Astro.props;
+---
+
+<td class="p-4 font-mono border-r border-black align-top">
+	<div class="flex flex-col gap-2">
+		<span class="github-stars text-lg" data-repo={repo}>Loading...</span>
+		<div class="w-full h-4 border border-black bg-white" style="display: none;" data-bar-repo={repo}>
+			<div class="h-full bg-accent transition-all duration-1000 ease-out w-0 border-r border-black" data-bar-fill={repo}></div>
+		</div>
+	</div>
+</td>

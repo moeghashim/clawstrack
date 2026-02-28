@@ -1,0 +1,70 @@
+================================================================================
+CLAWS TRACK — PROGRESS & LEARNINGS LOG
+================================================================================
+This file is append-only. Each session appends new entries below.
+Referenced by: CLAUDE.md, .cursor/rules/agent.md
+================================================================================
+
+--- 2026-02-27 ---
+
+## Session: Initial Setup & Reorganization
+
+### What was done
+- Verified project runs correctly (Astro v5.17.3, Tailwind CSS v4, localhost:4321)
+- Renamed workspace from clawstrack-3rd to clawstrack
+- Flattened folder structure: moved project files from nested clawstrack/ subdir to workspace root
+- Removed orphaned .astro and node_modules artifacts that existed at the old root
+- Reorganized src/ by extracting components and scripts from monolithic index.astro:
+  - Created src/components/StarsCell.astro (live GitHub stars with bar graph)
+  - Created src/components/FeatureCell.astro (boolean ● / ○ indicator)
+  - Created src/components/SectionHeader.astro (table section divider)
+  - Created src/scripts/github-stars.ts (client-side star fetcher, extracted from inline <script>)
+- Updated package.json name from "os-compare" to "clawstrack"
+- Created CLAUDE.md and .cursor/rules/agent.md (project guides, kept in sync)
+- Created this progress.txt file
+
+### Key decisions
+- Kept Astro content collections as the data source (one JSON file per project) rather than switching to a CMS or API — keeps things simple and version-controlled
+- Tailwind v4 uses CSS-based @theme config in global.css, not a tailwind.config.js — this is the v4 way
+- Components are scoped to table-level primitives (cells, headers) rather than a single monolithic table component — better for reuse as the matrix grows
+- Client-side GitHub API calls (unauthenticated) are fine for now but will hit rate limits at ~60 req/hr
+
+### Learnings
+- Astro v5 content collections use type: 'data' for JSON/YAML (not 'content' which is for Markdown)
+- Tailwind v4 dropped tailwind.config.* in favor of @theme {} blocks inside CSS
+- The project auto-expands columns when new JSON files are added to src/content/projects/ — no template changes needed
+- Astro <script src="..."> tags reference files that get bundled by Vite automatically
+
+--- 2026-02-27 ---
+
+## Session: Replace Projects — Web Frameworks → AI Assistant Ecosystem
+
+### What was done
+- Removed old project data: astro.json, nextjs.json (web framework comparisons)
+- Added 7 new AI assistant/agent projects:
+  - OpenClaw (openclaw/openclaw) — the original, 237k stars, TypeScript
+  - NanoClaw (qwibitai/nanoclaw) — lightweight alternative with container isolation, 16k stars
+  - nanobot (HKUDS/nanobot) — ultra-lightweight Python alternative, 26k stars
+  - PicoClaw (sipeed/picoclaw) — Go rewrite targeting $10 hardware, 21k stars
+  - Pi (badlogic/pi-mono) — AI agent toolkit with coding agent CLI, 18k stars
+  - IronClaw (nearai/ironclaw) — Rust rewrite focused on privacy/security, 4k stars
+  - ZeroClaw (zeroclaw-labs/zeroclaw) — Rust runtime OS for agentic workflows, 21k stars
+- Redesigned content schema: replaced web framework features (ssr, fileBasedRouting, serverActions)
+  and security fields (twoFactorRequired, scorecard) with AI assistant features:
+  multiChannel, sandboxIsolation, memorySystem, scheduledTasks, mcpSupport, webSearch, webUI, agentSwarms
+- Added `language` field to schema (string, not boolean — rendered as text cell)
+- Updated index.astro: new feature rows with alternating row backgrounds, project names
+  now link to their GitHub repos, removed Security & Compliance section
+- Installed sharp@0.33.5 to fix pre-existing build error
+
+### Key decisions
+- Feature booleans were determined by reading each project's README and GitHub metadata
+- Dropped security section (OpenSSF scorecard, 2FA) — not meaningful for this project set without real data
+- Added Language as a top-level text row alongside License rather than a boolean feature
+- Header project names now link to GitHub repos for quick navigation
+- Column min-width reduced from 200px to 160px to better fit 7 columns
+
+### Learnings
+- GitHub API returns "NOASSERTION" for license when the LICENSE file doesn't match a known SPDX pattern (picoclaw)
+- These "claw" projects form a clear ecosystem: OpenClaw is the reference, others are lightweight alternatives in various languages (TS, Python, Go, Rust)
+- The content collection auto-expansion pattern works perfectly — adding 7 JSON files required zero template logic changes beyond the feature rows

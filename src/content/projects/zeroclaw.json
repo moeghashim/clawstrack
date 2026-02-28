@@ -1,0 +1,17 @@
+{
+    "name": "ZeroClaw",
+    "repo": "zeroclaw-labs/zeroclaw",
+    "description": "Fast, small, fully autonomous AI assistant infrastructure — deploy anywhere, swap anything.",
+    "license": "Apache-2.0",
+    "language": "Rust",
+    "features": {
+        "multiChannel": true,
+        "sandboxIsolation": true,
+        "memorySystem": true,
+        "scheduledTasks": true,
+        "mcpSupport": false,
+        "webSearch": true,
+        "webUI": false,
+        "agentSwarms": false
+    }
+}

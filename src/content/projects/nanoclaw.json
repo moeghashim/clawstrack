@@ -1,0 +1,17 @@
+{
+    "name": "NanoClaw",
+    "repo": "qwibitai/nanoclaw",
+    "description": "Lightweight OpenClaw alternative that runs agents securely in containers.",
+    "license": "MIT",
+    "language": "TypeScript",
+    "features": {
+        "multiChannel": true,
+        "sandboxIsolation": true,
+        "memorySystem": true,
+        "scheduledTasks": true,
+        "mcpSupport": false,
+        "webSearch": true,
+        "webUI": false,
+        "agentSwarms": true
+    }
+}

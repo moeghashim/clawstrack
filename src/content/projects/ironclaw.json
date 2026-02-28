@@ -1,0 +1,17 @@
+{
+    "name": "IronClaw",
+    "repo": "nearai/ironclaw",
+    "description": "OpenClaw-inspired implementation in Rust focused on privacy and security.",
+    "license": "Apache-2.0",
+    "language": "Rust",
+    "features": {
+        "multiChannel": true,
+        "sandboxIsolation": true,
+        "memorySystem": true,
+        "scheduledTasks": true,
+        "mcpSupport": true,
+        "webSearch": false,
+        "webUI": true,
+        "agentSwarms": false
+    }
+}

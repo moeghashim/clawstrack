@@ -1,0 +1,17 @@
+{
+    "name": "nanobot",
+    "repo": "HKUDS/nanobot",
+    "description": "Ultra-lightweight personal AI assistant — 99% smaller than OpenClaw.",
+    "license": "MIT",
+    "language": "Python",
+    "features": {
+        "multiChannel": true,
+        "sandboxIsolation": false,
+        "memorySystem": true,
+        "scheduledTasks": true,
+        "mcpSupport": true,
+        "webSearch": true,
+        "webUI": false,
+        "agentSwarms": true
+    }
+}

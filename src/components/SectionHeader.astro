@@ -1,0 +1,11 @@
+---
+interface Props {
+	label: string;
+	colspan: number;
+}
+const { label, colspan } = Astro.props;
+---
+
+<tr class="bg-gray-200 border-b border-black">
+	<td colspan={colspan} class="p-2 pl-4 font-mono text-xs font-bold uppercase">{label}</td>
+</tr>

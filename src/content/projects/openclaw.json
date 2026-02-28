@@ -1,0 +1,17 @@
+{
+    "name": "OpenClaw",
+    "repo": "openclaw/openclaw",
+    "description": "Your own personal AI assistant. Any OS. Any Platform. The lobster way.",
+    "license": "MIT",
+    "language": "TypeScript",
+    "features": {
+        "multiChannel": true,
+        "sandboxIsolation": false,
+        "memorySystem": true,
+        "scheduledTasks": true,
+        "mcpSupport": true,
+        "webSearch": true,
+        "webUI": true,
+        "agentSwarms": false
+    }
+}

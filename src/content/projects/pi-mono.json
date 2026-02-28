@@ -1,0 +1,17 @@
+{
+    "name": "Pi",
+    "repo": "badlogic/pi-mono",
+    "description": "AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries.",
+    "license": "MIT",
+    "language": "TypeScript",
+    "features": {
+        "multiChannel": true,
+        "sandboxIsolation": false,
+        "memorySystem": false,
+        "scheduledTasks": false,
+        "mcpSupport": false,
+        "webSearch": false,
+        "webUI": true,
+        "agentSwarms": false
+    }
+}

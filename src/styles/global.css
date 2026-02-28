@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --color-accent: #FF3300;
+  --color-surface: #FAFAFA;
+  --shadow-brutal: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-brutal-sm: 2px 2px 0px 0px rgba(0,0,0,1);
+}

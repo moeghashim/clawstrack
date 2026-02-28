@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StarsCell from '../components/StarsCell.astro';
+import FeatureCell from '../components/FeatureCell.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const colCount = projects.length + 1;
+---
+
+<Layout title="Claws Track">
+	<div class="overflow-x-auto border-2 border-black shadow-brutal bg-white">
+		<table class="w-full text-left border-collapse">
+			<thead>
+				<tr class="bg-black text-white font-mono text-sm uppercase">
+					<th class="p-4 border-r border-gray-700">Criteria</th>
+					{projects.map(p => (
+						<th class="p-4 border-r border-gray-700 min-w-[160px]">
+							<a href={`https://github.com/${p.data.repo}`} class="hover:text-accent transition-colors" target="_blank" rel="noopener">
+								{p.data.name}
+							</a>
+						</th>
+					))}
+				</tr>
+			</thead>
+
+			<tbody class="text-sm">
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black align-top">GitHub Stars (Live)</td>
+					{projects.map(p => (
+						<StarsCell repo={p.data.repo} />
+					))}
+				</tr>
+
+				<tr class="border-b border-black">
+					<td class="p-4 font-bold border-r border-black">License</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono border-r border-black">{p.data.license}</td>
+					))}
+				</tr>
+
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black">Language</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono border-r border-black">{p.data.language}</td>
+					))}
+				</tr>
+
+				<SectionHeader label="Features" colspan={colCount} />
+
+				<tr class="border-b border-black">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Multi-Channel Messaging</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.multiChannel} />
+					))}
+				</tr>
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Sandbox Isolation</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.sandboxIsolation} />
+					))}
+				</tr>
+				<tr class="border-b border-black">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Persistent Memory</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.memorySystem} />
+					))}
+				</tr>
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Scheduled Tasks</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.scheduledTasks} />
+					))}
+				</tr>
+				<tr class="border-b border-black">
+					<td class="p-4 font-bold border-r border-black text-gray-700">MCP Support</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.mcpSupport} />
+					))}
+				</tr>
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Web Search</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.webSearch} />
+					))}
+				</tr>
+				<tr class="border-b border-black">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Web UI</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.webUI} />
+					))}
+				</tr>
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black text-gray-700">Agent Swarms</td>
+					{projects.map(p => (
+						<FeatureCell enabled={p.data.features.agentSwarms} />
+					))}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</Layout>
+
+<script src="../scripts/github-stars.ts"></script>

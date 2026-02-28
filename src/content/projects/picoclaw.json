@@ -1,0 +1,17 @@
+{
+    "name": "PicoClaw",
+    "repo": "sipeed/picoclaw",
+    "description": "Ultra-efficient Go AI assistant — runs on $10 hardware with <10MB RAM.",
+    "license": "MIT",
+    "language": "Go",
+    "features": {
+        "multiChannel": false,
+        "sandboxIsolation": false,
+        "memorySystem": true,
+        "scheduledTasks": true,
+        "mcpSupport": false,
+        "webSearch": true,
+        "webUI": false,
+        "agentSwarms": false
+    }
+}
