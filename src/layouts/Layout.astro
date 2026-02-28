@@ -5,6 +5,10 @@ interface Props {
 	title: string;
 }
 const { title } = Astro.props;
+
+const CREATOR_X = 'moeghashim';
+const VERSION = '0.0.1';
+const VERSION_DATE = '2026-02-27';
 ---
 
 <!doctype html>
@@ -19,13 +23,17 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="bg-surface text-black font-sans antialiased min-h-screen p-4 md:p-8">
-		<header class="max-w-6xl mx-auto mb-12 border-b-2 border-black pb-6 flex justify-between items-end">
+		<header class="max-w-6xl mx-auto mb-12 border-b-2 border-black pb-6 flex justify-between items-end flex-wrap gap-4">
 			<div>
 				<h1 class="text-4xl font-bold uppercase tracking-tight">Claws Track</h1>
 				<p class="font-mono text-sm mt-2 text-gray-600">// Open Source Project Analysis Matrix</p>
+				<a href={`https://x.com/${CREATOR_X}`} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-gray-500 hover:text-accent mt-1 inline-block transition-colors">
+					@{CREATOR_X}
+				</a>
 			</div>
-			<div class="hidden md:block">
-				<span class="bg-black text-white font-mono text-xs px-2 py-1">V 1.0.0</span>
+			<div class="flex flex-col items-end gap-1">
+				<span class="bg-black text-white font-mono text-xs px-2 py-1">V {VERSION}</span>
+				<span class="font-mono text-xs text-gray-500">{VERSION_DATE}</span>
 			</div>
 		</header>
 		<main class="max-w-6xl mx-auto">

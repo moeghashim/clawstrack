@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# Claws Track
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Open-source AI assistant project comparison matrix. Side-by-side feature, license, and popularity data for the "claw" ecosystem — OpenClaw, NanoClaw, nanobot, PicoClaw, Pi, IronClaw, and ZeroClaw.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Projects Compared
 
-## 🚀 Project Structure
+| Project | Repo | Language |
+|---------|------|----------|
+| OpenClaw | [openclaw/openclaw](https://github.com/openclaw/openclaw) | TypeScript |
+| nanobot | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | Python |
+| PicoClaw | [sipeed/picoclaw](https://github.com/sipeed/picoclaw) | Go |
+| ZeroClaw | [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw) | Rust |
+| Pi | [badlogic/pi-mono](https://github.com/badlogic/pi-mono) | TypeScript |
+| NanoClaw | [qwibitai/nanoclaw](https://github.com/qwibitai/nanoclaw) | TypeScript |
+| IronClaw | [nearai/ironclaw](https://github.com/nearai/ironclaw) | Rust |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Features Tracked
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Multi-Channel Messaging** — WhatsApp, Telegram, Slack, Discord, etc.
+- **Sandbox Isolation** — Container or WASM-based agent isolation
+- **Persistent Memory** — Conversation and context storage
+- **Scheduled Tasks** — Cron-style or recurring jobs
+- **MCP Support** — Model Context Protocol
+- **Web Search** — Built-in web search capability
+- **Web UI** — Browser-based interface
+- **Agent Swarms** — Multi-agent collaboration
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+GitHub star counts are fetched live client-side.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Tech Stack
 
-Any static assets, like images, can be placed in the `public/` directory.
+- [Astro](https://astro.build) v5 — static-first
+- [Tailwind CSS](https://tailwindcss.com) v4
+- TypeScript (strict mode)
+- Content Collections (JSON data)
 
-## 🧞 Commands
+## Commands
 
-All commands are run from the root of the project, from a terminal:
+| Command | Action |
+|---------|--------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Production build to `./dist/` |
+| `npm run preview` | Preview production build locally |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Adding a Project
 
-## 👀 Want to learn more?
+1. Create `src/content/projects/<name>.json` matching the schema in `src/content/config.ts`
+2. The table auto-expands — no template changes needed
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## License
+
+MIT
