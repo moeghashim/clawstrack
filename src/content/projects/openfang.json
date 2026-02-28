@@ -1,0 +1,18 @@
+{
+    "name": "OpenFang",
+    "repo": "RightNow-AI/openfang",
+    "description": "Community AI assistant project entry; detailed metadata pending.",
+    "license": "—",
+    "language": "—",
+    "version": "—",
+    "features": {
+        "multiChannel": false,
+        "sandboxIsolation": false,
+        "memorySystem": false,
+        "scheduledTasks": false,
+        "mcpSupport": false,
+        "webSearch": false,
+        "webUI": false,
+        "agentSwarms": false
+    }
+}

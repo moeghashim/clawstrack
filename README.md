@@ -8,6 +8,8 @@ Open-source AI assistant project comparison matrix. Side-by-side feature, licens
 |---------|------|----------|
 | OpenClaw | [openclaw/openclaw](https://github.com/openclaw/openclaw) | TypeScript |
 | NullClaw | [nullclaw/nullclaw](https://github.com/nullclaw/nullclaw) | — |
+| CoPaw | [agentscope-ai/CoPaw](https://github.com/agentscope-ai/CoPaw) | — |
+| OpenFang | [RightNow-AI/openfang](https://github.com/RightNow-AI/openfang) | — |
 | nanobot | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | Python |
 | PicoClaw | [sipeed/picoclaw](https://github.com/sipeed/picoclaw) | Go |
 | ZeroClaw | [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw) | Rust |
