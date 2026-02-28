@@ -10,13 +10,13 @@ const colCount = projects.length + 1;
 ---
 
 <Layout title="Claws Track">
-	<div class="border-2 border-black shadow-brutal bg-white overflow-x-auto">
-		<table class="w-full min-w-[1200px] text-left border-collapse table-fixed">
+	<div class="overflow-x-auto border-2 border-black shadow-brutal bg-white">
+		<table class="w-full text-left border-collapse">
 			<thead>
 				<tr class="bg-black text-white font-mono text-sm uppercase">
-					<th class="p-4 border-r border-gray-700 w-48">Criteria</th>
+					<th class="p-4 border-r border-gray-700 min-w-[140px]">Criteria</th>
 					{projects.map(p => (
-						<th class="p-4 border-r border-gray-700">
+						<th class="p-4 border-r border-gray-700 min-w-[140px]">
 							<a href={`https://github.com/${p.data.repo}`} class="hover:text-accent transition-colors" target="_blank" rel="noopener">
 								{p.data.name}
 							</a>
