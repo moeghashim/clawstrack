@@ -7,8 +7,6 @@ interface Props {
 const { title } = Astro.props;
 
 const CREATOR_X = 'moeghashim';
-const VERSION = '0.0.1';
-const VERSION_DATE = '2026-02-27';
 ---
 
 <!doctype html>
@@ -30,10 +28,6 @@ const VERSION_DATE = '2026-02-27';
 				<a href={`https://x.com/${CREATOR_X}`} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-gray-500 hover:text-accent mt-1 inline-block transition-colors">
 					@{CREATOR_X}
 				</a>
-			</div>
-			<div class="flex flex-col items-end gap-1">
-				<span class="bg-black text-white font-mono text-xs px-2 py-1">V {VERSION}</span>
-				<span class="font-mono text-xs text-gray-500">{VERSION_DATE}</span>
 			</div>
 		</header>
 		<main class="max-w-6xl mx-auto">

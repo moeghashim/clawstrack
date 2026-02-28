@@ -6,6 +6,8 @@
     "language": "TypeScript",
     "version": "v0.55.3",
     "xAccount": "badlogicgames",
+    "latestReleaseDate": "2026-02-27",
+    "projectAgeMonths": 6,
     "codeSize": "~115k",
     "memorySystemType": "",
     "features": {

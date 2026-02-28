@@ -6,6 +6,8 @@
     "language": "Go",
     "version": "v0.1.2",
     "xAccount": "SipeedIO",
+    "latestReleaseDate": "2026-02-17",
+    "projectAgeMonths": 0,
     "codeSize": "~36k",
     "memorySystemType": "MEMORY.md, long-term memory",
     "features": {

@@ -89,3 +89,14 @@ Referenced by: CLAUDE.md, .cursor/rules/agent.md
 - Added `memorySystemType` (optional string) to content schema
 - Added "Memory System" row to comparison table showing implementation details per project
 - Populated from READMEs: OpenClaw (workspace filesystem), NanoClaw (CLAUDE.md per group), nanobot (memory.py), PicoClaw (MEMORY.md), IronClaw (PostgreSQL + pgvector), ZeroClaw (pluggable trait-based), Pi (—)
+
+--- 2026-02-28 ---
+
+## Session: Release metadata and Scrapling watcher skill
+
+### What was done
+- Removed header badge (version/date) from layout
+- Added `latestReleaseDate`, `projectAgeMonths`, and line-based `codeSize` to project data and table
+- Added "Latest Release", "Project Age (months)", and clarified "Code Size (lines)" rows
+- Created `src/pages/releases.astro` as a landing page for release summaries
+- Added skill `.cursor/skills/watch-releases-scrapling/SKILL.md` to monitor GitHub releases with Scrapling and update release data

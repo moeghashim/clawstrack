@@ -6,6 +6,8 @@
     "language": "Rust",
     "version": "v0.12.0",
     "xAccount": "",
+    "latestReleaseDate": "2026-02-26",
+    "projectAgeMonths": 0,
     "codeSize": "~135k",
     "memorySystemType": "PostgreSQL + pgvector, hybrid search, workspace",
     "features": {

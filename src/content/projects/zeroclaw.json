@@ -6,6 +6,8 @@
     "language": "Rust",
     "version": "v0.1.7",
     "xAccount": "zeroclawlabs",
+    "latestReleaseDate": "2026-02-24",
+    "projectAgeMonths": 0,
     "codeSize": "~198k",
     "memorySystemType": "Pluggable (trait-based)",
     "features": {

@@ -55,10 +55,28 @@ const colCount = projects.length + 1;
 				</tr>
 
 				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black">Latest Release</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono border-r border-black">
+							{p.data.latestReleaseDate ? p.data.latestReleaseDate : <span class="text-gray-400">—</span>}
+						</td>
+					))}
+				</tr>
+
+				<tr class="border-b border-black">
 					<td class="p-4 font-bold border-r border-black">Code Size (lines)</td>
 					{projects.map(p => (
 						<td class="p-4 font-mono text-xs border-r border-black">
 							{p.data.codeSize ? p.data.codeSize : <span class="text-gray-400">—</span>}
+						</td>
+					))}
+				</tr>
+
+				<tr class="border-b border-black bg-gray-100">
+					<td class="p-4 font-bold border-r border-black">Project Age (months)</td>
+					{projects.map(p => (
+						<td class="p-4 font-mono border-r border-black">
+							{typeof p.data.projectAgeMonths === 'number' ? p.data.projectAgeMonths : <span class="text-gray-400">—</span>}
 						</td>
 					))}
 				</tr>

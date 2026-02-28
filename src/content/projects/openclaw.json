@@ -6,6 +6,8 @@
     "language": "TypeScript",
     "version": "v2026.2.26",
     "xAccount": "openclaw",
+    "latestReleaseDate": "2026-02-27",
+    "projectAgeMonths": 3,
     "codeSize": "~430k",
     "memorySystemType": "Workspace filesystem, skills",
     "features": {

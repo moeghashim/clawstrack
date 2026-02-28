@@ -6,6 +6,8 @@
     "language": "TypeScript",
     "version": "—",
     "xAccount": "qwibitai",
+    "latestReleaseDate": "—",
+    "projectAgeMonths": 0,
     "codeSize": "~22k",
     "memorySystemType": "CLAUDE.md per group, isolated filesystem",
     "features": {

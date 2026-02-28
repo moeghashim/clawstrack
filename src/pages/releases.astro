@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<Layout title="Releases">
+	<div class="border-2 border-black shadow-brutal bg-white p-4">
+		<h2 class="text-2xl font-bold mb-4">Project Releases</h2>
+		<p class="text-sm text-gray-700 mb-6">Latest release info for all tracked projects. Skill-driven automation will keep this page updated as new releases ship.</p>
+
+		<table class="w-full text-left border-collapse">
+			<thead>
+				<tr class="bg-black text-white font-mono text-xs uppercase">
+					<th class="p-3 border-r border-gray-700">Project</th>
+					<th class="p-3 border-r border-gray-700">Version</th>
+					<th class="p-3 border-r border-gray-700">Release Date</th>
+					<th class="p-3">Notes</th>
+				</tr>
+			</thead>
+			<tbody class="text-sm">
+				{projects.map(p => (
+					<tr class="border-b border-black odd:bg-gray-100">
+						<td class="p-3 font-bold border-r border-black">
+							<a href={`https://github.com/${p.data.repo}`} class="hover:text-accent transition-colors" target="_blank" rel="noopener">
+								{p.data.name}
+							</a>
+						</td>
+						<td class="p-3 font-mono border-r border-black">{p.data.version}</td>
+						<td class="p-3 font-mono border-r border-black">
+							{p.data.latestReleaseDate ? p.data.latestReleaseDate : <span class="text-gray-400">—</span>}
+						</td>
+						<td class="p-3 text-gray-700">Latest features will be auto-listed here by the Scrapling release watcher skill.</td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</div>
+</Layout>
